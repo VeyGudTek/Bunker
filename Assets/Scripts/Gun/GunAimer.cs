@@ -9,6 +9,12 @@ public class GunAimer : MonoBehaviour
     [SerializeField]
     private Transform CameraTransform;
 
+    public void ApplyRecoil(float recoilScalar)
+    {
+        Quaternion rotationRecoil = Quaternion.Euler(-recoilScalar, 0f, 0f);
+        transform.rotation = transform.rotation * rotationRecoil;
+    }
+
     void FixedUpdate()
     {
         AimGun();

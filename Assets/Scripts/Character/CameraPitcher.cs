@@ -7,6 +7,10 @@ public class CameraPitcher : MonoBehaviour
     void Update()
     {
         ApplyInput();
+    }
+
+    void FixedUpdate()
+    {
         RotateCamera();
     }
 
