@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     public Vector2 Move => m_Player.Move.ReadValue<Vector2>();
     public bool Fire => m_Player.Fire.WasPressedThisFrame();
     public bool FireHeld => m_Player.Fire.IsPressed();
+    public bool Scope => m_Player.Scope.WasPressedThisFrame();
 
     void Awake()
     {
