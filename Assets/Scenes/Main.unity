@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 451957203}
   - component: {fileID: 451957205}
   m_Layer: 0
-  m_Name: GunBody
+  m_Name: GunContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1140,8 +1140,9 @@ GameObject:
   - component: {fileID: 1945145714}
   - component: {fileID: 1945145713}
   - component: {fileID: 1945145716}
+  - component: {fileID: 1945145717}
   m_Layer: 0
-  m_Name: Visual
+  m_Name: GunBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1254,6 +1255,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GunScope
   ScopedTransform: {fileID: 1770015062}
   HipTransform: {fileID: 2067045453}
+--- !u!114 &1945145717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945145711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9239923b810f42446b7593d5fa302a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunAimer
+  Vision: {fileID: 2012324160}
 --- !u!1 &2012324157
 GameObject:
   m_ObjectHideFlags: 0
