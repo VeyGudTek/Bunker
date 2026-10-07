@@ -542,7 +542,6 @@ GameObject:
   - component: {fileID: 451957205}
   - component: {fileID: 451957204}
   - component: {fileID: 451957203}
-  - component: {fileID: 451957206}
   m_Layer: 0
   m_Name: GunBody
   m_TagString: Untagged
@@ -609,21 +608,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GunAimer
   PlayerBodyTransform: {fileID: 607166447}
   CameraTransform: {fileID: 2012324158}
---- !u!114 &451957206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451957201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484a3c95e3cdc8d4782a9cb5d935e06c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GunScope
-  LocalGunTransform: {fileID: 1945145712}
-  ScopedTransform: {fileID: 1770015062}
-  HipTransform: {fileID: 2067045453}
 --- !u!1 &486776701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1139,7 @@ GameObject:
   - component: {fileID: 1945145715}
   - component: {fileID: 1945145714}
   - component: {fileID: 1945145713}
+  - component: {fileID: 1945145716}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -1255,6 +1240,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945145711}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1945145716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945145711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484a3c95e3cdc8d4782a9cb5d935e06c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunScope
+  ScopedTransform: {fileID: 1770015062}
+  HipTransform: {fileID: 2067045453}
 --- !u!1 &2012324157
 GameObject:
   m_ObjectHideFlags: 0
