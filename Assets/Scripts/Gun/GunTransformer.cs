@@ -5,7 +5,7 @@ public class GunTransformer : MonoBehaviour
     [SerializeField]
     private GunMover GunMover;
     [SerializeField]
-    private GunAimer GunAimer;
+    private GunRotator GunRotator;
 
     private void Update()
     {
@@ -18,7 +18,7 @@ public class GunTransformer : MonoBehaviour
 
     public void ApplyRecoil(float recoilScalar)
     {
-        GunAimer.ApplyRecoil(recoilScalar);
+        GunRotator.ApplyRecoil(recoilScalar);
         GunMover.ApplyRecoil(recoilScalar);
     }
 }

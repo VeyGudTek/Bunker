@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class GunAimer : MonoBehaviour
+public class GunRotator : MonoBehaviour
 {
     const float GUN_AIM_SPEED = 1000f;
+    const float GUN_RECOIL = 100f;
 
     [SerializeField]
     private Transform PlayerBodyTransform;
@@ -11,16 +12,16 @@ public class GunAimer : MonoBehaviour
 
     public void ApplyRecoil(float recoilScalar)
     {
-        Quaternion rotationRecoil = Quaternion.Euler(-recoilScalar, 0f, 0f);
+        Quaternion rotationRecoil = Quaternion.Euler(-recoilScalar * GUN_RECOIL, 0f, 0f);
         transform.rotation = transform.rotation * rotationRecoil;
     }
 
     void FixedUpdate()
     {
-        AimGun();
+        RotateGun();
     }
 
-    private void AimGun()
+    private void RotateGun()
     {
         float yaw = PlayerBodyTransform.localRotation.eulerAngles.y;
         float pitch = CameraTransform.localRotation.eulerAngles.x;
