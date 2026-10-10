@@ -3,7 +3,7 @@ using UnityEngine;
 public class GunMover : MonoBehaviour
 {
     [SerializeField]
-    private Transform CameraTransform;
+    private Transform HeadTransform;
 
     const float BASE_SPEED_DISTANCE = .5f;
     const float BASE_SPEED = 10f;
@@ -23,9 +23,9 @@ public class GunMover : MonoBehaviour
 
     private void MoveGun()
     {
-        Vector3 difference = CameraTransform.position - transform.position;
+        Vector3 difference = HeadTransform.position - transform.position;
         float speed = (difference.magnitude / BASE_SPEED_DISTANCE) * BASE_SPEED;
 
-        transform.position = Vector3.MoveTowards(transform.position, CameraTransform.position, speed * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, HeadTransform.position, speed * Time.fixedDeltaTime);
     }
 }

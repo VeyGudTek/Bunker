@@ -8,7 +8,7 @@ public class GunRotator : MonoBehaviour
     [SerializeField]
     private Transform PlayerBodyTransform;
     [SerializeField]
-    private Transform CameraTransform;
+    private Transform HeadTransform;
 
     public void ApplyRecoil(float recoilScalar)
     {
@@ -24,7 +24,7 @@ public class GunRotator : MonoBehaviour
     private void RotateGun()
     {
         float yaw = PlayerBodyTransform.localRotation.eulerAngles.y;
-        float pitch = CameraTransform.localRotation.eulerAngles.x;
+        float pitch = HeadTransform.localRotation.eulerAngles.x;
         Quaternion targetRotation = Quaternion.Euler(pitch, yaw, 0f);
 
         float speedPercent = Quaternion.Angle(transform.rotation, targetRotation) / 180f;

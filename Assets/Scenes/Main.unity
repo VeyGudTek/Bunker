@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60da0d546c9aa584889a51ad4cdfcf1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunMover
-  CameraTransform: {fileID: 2012324158}
+  HeadTransform: {fileID: 2012324158}
 --- !u!114 &451957205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunAimer
   PlayerBodyTransform: {fileID: 607166447}
-  CameraTransform: {fileID: 2012324158}
+  HeadTransform: {fileID: 2012324158}
 --- !u!114 &451957206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,7 +1125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1770015062}
   m_Layer: 0
-  m_Name: Scope
+  m_Name: ScopeTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1559,7 +1559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2067045453}
   m_Layer: 0
-  m_Name: Hip
+  m_Name: HipTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
