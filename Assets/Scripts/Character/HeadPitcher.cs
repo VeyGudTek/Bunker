@@ -7,7 +7,7 @@ public class HeadPitcher : MonoBehaviour
     float TargetPitch = 0f;
     Quaternion Recoil = Quaternion.identity;
 
-    public void AddRecoil(float recoilScalar)
+    public void ApplyRecoil(float recoilScalar)
     {
         float angle = Quaternion.Angle(Recoil, Quaternion.identity);
         if (angle < MAX_RECOIL_ANGLE)
@@ -18,11 +18,6 @@ public class HeadPitcher : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.Instance.Fire)
-        {
-            AddRecoil(10f);
-        }
-
         ApplyInput();
         DecayRecoil();
     }

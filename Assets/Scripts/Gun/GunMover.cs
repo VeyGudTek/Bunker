@@ -5,8 +5,8 @@ public class GunMover : MonoBehaviour
     [SerializeField]
     private Transform CameraTransform;
 
-    const float MAX_SPEED_DISTANCE = .5f;
-    const float MAX_SPEED = 10f;
+    const float BASE_SPEED_DISTANCE = .5f;
+    const float BASE_SPEED = 10f;
 
     public void ApplyRecoil(float recoilScalar)
     {
@@ -24,7 +24,7 @@ public class GunMover : MonoBehaviour
     private void MoveGun()
     {
         Vector3 difference = CameraTransform.position - transform.position;
-        float speed = Mathf.Clamp(difference.magnitude / MAX_SPEED_DISTANCE, 0f, 1f) * MAX_SPEED;
+        float speed = (difference.magnitude / BASE_SPEED_DISTANCE) * BASE_SPEED;
 
         transform.position = Vector3.MoveTowards(transform.position, CameraTransform.position, speed * Time.fixedDeltaTime);
     }

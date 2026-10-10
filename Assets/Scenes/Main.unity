@@ -540,8 +540,8 @@ GameObject:
   m_Component:
   - component: {fileID: 451957202}
   - component: {fileID: 451957204}
-  - component: {fileID: 451957203}
   - component: {fileID: 451957205}
+  - component: {fileID: 451957206}
   m_Layer: 0
   m_Name: GunContainer
   m_TagString: Untagged
@@ -567,20 +567,6 @@ Transform:
   - {fileID: 2067045453}
   m_Father: {fileID: 839346820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &451957203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451957201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75103f85f8e234e4782f4b11eb2cb430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GunTransformer
-  GunMover: {fileID: 451957204}
-  GunRotator: {fileID: 451957205}
 --- !u!114 &451957204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,6 +594,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GunAimer
   PlayerBodyTransform: {fileID: 607166447}
   CameraTransform: {fileID: 2012324158}
+--- !u!114 &451957206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451957201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d572c514b846043b4a11f5c537f43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shooter
+  GunMover: {fileID: 451957204}
+  GunRotator: {fileID: 451957205}
+  HeadPitcher: {fileID: 2012324159}
 --- !u!1 &486776701
 GameObject:
   m_ObjectHideFlags: 0
