@@ -11,12 +11,9 @@ public class GunScope : MonoBehaviour
 
     bool IsScoped = false;
 
-    void Update()
+    public void ToggleScope()
     {
-        if (InputManager.Instance.Scope)
-        {
-            IsScoped = !IsScoped;
-        }
+        IsScoped = !IsScoped;
     }
 
     private void FixedUpdate()

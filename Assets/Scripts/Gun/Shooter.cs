@@ -9,15 +9,6 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private HeadPitcher HeadPitcher;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (InputManager.Instance.Fire)
-        {
-            Shoot();
-        }
-    }
-
     public void Shoot()
     {
         ApplyRecoil(1f);

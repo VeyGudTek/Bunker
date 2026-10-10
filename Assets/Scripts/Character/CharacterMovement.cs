@@ -6,13 +6,11 @@ public class CharacterMovement : MonoBehaviour
     Rigidbody CharacterRigidbody;
 
     const float MoveSpeed = 5f;
-
     Vector2 Input = Vector2.zero;
 
-
-    void Update()
+    public void InputMovement(Vector2 movementVector)
     {
-        Input = InputManager.Instance.Move;
+        Input = movementVector;
     }
 
     void FixedUpdate()

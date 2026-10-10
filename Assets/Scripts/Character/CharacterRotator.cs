@@ -7,19 +7,14 @@ public class CharacterRotator : MonoBehaviour
 
     float TargetYaw;
 
-    void Update()
+    public void ApplyInput(float lookX)
     {
-        ApplyInput();
+        TargetYaw += lookX * SettingsManager.Instance.Settings.MouseSensitivity;
     }
 
     private void FixedUpdate()
     {
         RotatePlayer();
-    }
-
-    void ApplyInput()
-    {
-        TargetYaw += InputManager.Instance.Look.x * SettingsManager.Instance.Settings.MouseSensitivity;
     }
 
     void RotatePlayer()

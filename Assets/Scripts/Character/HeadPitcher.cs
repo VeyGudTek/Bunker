@@ -16,21 +16,20 @@ public class HeadPitcher : MonoBehaviour
         }
     }
 
+    public void ApplyInput(float lookY)
+    {
+        TargetPitch -= lookY * SettingsManager.Instance.Settings.MouseSensitivity;
+        TargetPitch = Mathf.Clamp(TargetPitch, -90f, 90f);
+    }
+
     void Update()
     {
-        ApplyInput();
         DecayRecoil();
     }
 
     void FixedUpdate()
     {
         RotateCamera();
-    }
-
-    void ApplyInput()
-    {
-        TargetPitch -= InputManager.Instance.Look.y * SettingsManager.Instance.Settings.MouseSensitivity;
-        TargetPitch = Mathf.Clamp(TargetPitch, -90f, 90f);
     }
 
     void DecayRecoil()
