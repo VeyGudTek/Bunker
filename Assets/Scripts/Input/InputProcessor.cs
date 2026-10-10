@@ -3,6 +3,8 @@ using UnityEngine;
 public class InputProcessor : MonoBehaviour
 {
     [SerializeField]
+    private InputManager InputManager;
+    [SerializeField]
     private Shooter Shooter;
     [SerializeField]
     private GunScope GunScope;
@@ -23,7 +25,7 @@ public class InputProcessor : MonoBehaviour
 
     void InputFire()
     {
-        if (InputManager.Instance.Fire)
+        if (InputManager.Fire)
         {
             Shooter.Shoot();
         }
@@ -31,7 +33,7 @@ public class InputProcessor : MonoBehaviour
 
     void InputScope()
     {
-        if (InputManager.Instance.Scope)
+        if (InputManager.Scope)
         {
             GunScope.ToggleScope();
         }
@@ -39,7 +41,7 @@ public class InputProcessor : MonoBehaviour
 
     void InputLook()
     {
-        Vector2 lookVector = InputManager.Instance.Look;
+        Vector2 lookVector = InputManager.Look;
 
         HeadPitcher.ApplyInput(lookVector.y);
         CharacterRotator.ApplyInput(lookVector.x);
@@ -47,7 +49,7 @@ public class InputProcessor : MonoBehaviour
 
     void InputMovement()
     {
-        Vector2 movementVector = InputManager.Instance.Move;
+        Vector2 movementVector = InputManager.Move;
 
         CharacterMover.InputMovement(movementVector);
     }

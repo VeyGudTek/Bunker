@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager Instance { get; private set; }
-
     private PlayerControls m_Actions;
     private PlayerControls.PlayerActions m_Player;
 
@@ -15,8 +13,6 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
-
         m_Actions = new PlayerControls();
         m_Player = m_Actions.Player;
     }

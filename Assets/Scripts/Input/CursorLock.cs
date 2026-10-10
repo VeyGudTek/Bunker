@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class CursorLock : MonoBehaviour
 {
-    public static CursorLock Instance { get; private set; }
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;

@@ -695,6 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61cf7bc5099fe4e43a31437987c8706d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputProcessor
+  InputManager: {fileID: 486776703}
   Shooter: {fileID: 451957206}
   GunScope: {fileID: 1945145716}
   HeadPitcher: {fileID: 2012324159}
