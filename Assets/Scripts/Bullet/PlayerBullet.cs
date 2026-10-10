@@ -8,10 +8,13 @@ public class PlayerBullet : MonoBehaviour
     bool Released = false;
     private Action ReleaseFunction;
 
-    public void Init(Action release)
+    public void Init(Transform startingTransform, Action release)
     {
         Released = false;
         ReleaseFunction = release;
+        transform.position = startingTransform.position;
+        transform.rotation = startingTransform.rotation;
+
         StartCoroutine(LifeCycleTimer());
     }
 

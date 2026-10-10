@@ -9,7 +9,7 @@ public class GunScope : MonoBehaviour
     [SerializeField]
     Transform HipTransform;
 
-    bool IsScoped = false;
+    public bool IsScoped { get; private set; } = false;
 
     public void ToggleScope()
     {

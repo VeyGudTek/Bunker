@@ -969,6 +969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
   CharacterRigidbody: {fileID: 607166448}
+  GunScope: {fileID: 1945145716}
 --- !u!1 &734454739
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,10 +26,9 @@ public class PlayerBulletManager : MonoBehaviour
     }
 
 
-    public void Shoot(Vector3 startingPosition)
+    public void Shoot(Transform gunTipTransform)
     {
         PlayerBullet bullet = BulletPool.Get();
-        bullet.Init(() => BulletPool.Release(bullet));
-        bullet.transform.position = startingPosition;
+        bullet.Init(gunTipTransform, () => BulletPool.Release(bullet));
     }
 }

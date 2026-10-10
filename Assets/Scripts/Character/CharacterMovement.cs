@@ -4,8 +4,10 @@ public class CharacterMovement : MonoBehaviour
 {
     [SerializeField]
     Rigidbody CharacterRigidbody;
+    [SerializeField]
+    GunScope GunScope;
 
-    const float MoveSpeed = 5f;
+    const float BASE_MOVE_SPEED = 5f;
     Vector2 Input = Vector2.zero;
 
     public void InputMovement(Vector2 movementVector)
@@ -22,6 +24,8 @@ public class CharacterMovement : MonoBehaviour
     {
         Vector3 inputVector = new Vector3(Input.x, 0f, Input.y);
         Vector3 movementVector = transform.TransformDirection(inputVector).normalized;
-        CharacterRigidbody.MovePosition(CharacterRigidbody.position + movementVector * MoveSpeed * Time.fixedDeltaTime);
+        float moveSpeed = GunScope.IsScoped ? BASE_MOVE_SPEED / 2f : BASE_MOVE_SPEED;
+
+        CharacterRigidbody.MovePosition(CharacterRigidbody.position + movementVector * moveSpeed * Time.fixedDeltaTime);
     }
 }

@@ -15,7 +15,7 @@ public class Shooter : MonoBehaviour
 
     public void Shoot()
     {
-        PlayerBulletManager.Shoot(GunTip.position);
+        PlayerBulletManager.Shoot(GunTip);
         ApplyRecoil(1f);
     }
 
