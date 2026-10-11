@@ -10,6 +10,8 @@ public class InputManager : MonoBehaviour
     public bool Fire => m_Player.Fire.WasPressedThisFrame();
     public bool FireHeld => m_Player.Fire.IsPressed();
     public bool Scope => m_Player.Scope.WasPressedThisFrame();
+    public bool ScrollLeft => m_Player.ScrollLeft.WasPressedThisFrame();
+    public bool ScrollRight => m_Player.ScrollRight.WasPressedThisFrame();
 
     void Awake()
     {

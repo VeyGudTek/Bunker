@@ -127,6 +127,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ScrollLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""acb18c4c-ccd1-4bb3-8401-df1f99a73f45"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ScrollRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""53d56948-6537-40f6-91a9-935167ebe448"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -217,6 +235,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Scope"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2aa3ce1c-9ed0-409d-bdf1-8522146537ff"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrollLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3cb53edf-ea6d-4ff9-ac23-ad18f8b3a8fb"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrollRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -229,6 +269,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Scope = m_Player.FindAction("Scope", throwIfNotFound: true);
+        m_Player_ScrollLeft = m_Player.FindAction("ScrollLeft", throwIfNotFound: true);
+        m_Player_ScrollRight = m_Player.FindAction("ScrollRight", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -313,6 +355,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Scope;
+    private readonly InputAction m_Player_ScrollLeft;
+    private readonly InputAction m_Player_ScrollRight;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -340,6 +384,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Scope".
         /// </summary>
         public InputAction @Scope => m_Wrapper.m_Player_Scope;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ScrollLeft".
+        /// </summary>
+        public InputAction @ScrollLeft => m_Wrapper.m_Player_ScrollLeft;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ScrollRight".
+        /// </summary>
+        public InputAction @ScrollRight => m_Wrapper.m_Player_ScrollRight;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -378,6 +430,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Scope.started += instance.OnScope;
             @Scope.performed += instance.OnScope;
             @Scope.canceled += instance.OnScope;
+            @ScrollLeft.started += instance.OnScrollLeft;
+            @ScrollLeft.performed += instance.OnScrollLeft;
+            @ScrollLeft.canceled += instance.OnScrollLeft;
+            @ScrollRight.started += instance.OnScrollRight;
+            @ScrollRight.performed += instance.OnScrollRight;
+            @ScrollRight.canceled += instance.OnScrollRight;
         }
 
         /// <summary>
@@ -401,6 +459,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Scope.started -= instance.OnScope;
             @Scope.performed -= instance.OnScope;
             @Scope.canceled -= instance.OnScope;
+            @ScrollLeft.started -= instance.OnScrollLeft;
+            @ScrollLeft.performed -= instance.OnScrollLeft;
+            @ScrollLeft.canceled -= instance.OnScrollLeft;
+            @ScrollRight.started -= instance.OnScrollRight;
+            @ScrollRight.performed -= instance.OnScrollRight;
+            @ScrollRight.canceled -= instance.OnScrollRight;
         }
 
         /// <summary>
@@ -469,5 +533,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnScope(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ScrollLeft" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnScrollLeft(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ScrollRight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnScrollRight(InputAction.CallbackContext context);
     }
 }

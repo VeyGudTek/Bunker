@@ -7,6 +7,8 @@ public class InputProcessor : MonoBehaviour
     [SerializeField]
     private Shooter Shooter;
     [SerializeField]
+    private GunManager GunManager;
+    [SerializeField]
     private GunScope GunScope;
     [SerializeField]
     private HeadPitcher HeadPitcher;
@@ -19,6 +21,7 @@ public class InputProcessor : MonoBehaviour
     {
         InputFire();
         InputScope();
+        InputScroll();
         InputLook();
         InputMovement();
     }
@@ -36,6 +39,17 @@ public class InputProcessor : MonoBehaviour
         if (InputManager.Scope)
         {
             GunScope.ToggleScope();
+        }
+    }
+
+    void InputScroll()
+    {
+        bool scrollLeft = InputManager.ScrollLeft;
+        bool scrollRight = InputManager.ScrollRight;
+
+        if (scrollLeft || scrollRight)
+        {
+            GunManager.ScrollGun(scrollLeft);
         }
     }
 

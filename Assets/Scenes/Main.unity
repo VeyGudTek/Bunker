@@ -609,6 +609,7 @@ MonoBehaviour:
   GunMover: {fileID: 451957204}
   GunRotator: {fileID: 451957205}
   HeadPitcher: {fileID: 2012324159}
+  GunManager: {fileID: 486776708}
   PlayerBulletManager: {fileID: 486776707}
   GunTip: {fileID: 541663097}
 --- !u!1 &486776701
@@ -625,6 +626,7 @@ GameObject:
   - component: {fileID: 486776705}
   - component: {fileID: 486776706}
   - component: {fileID: 486776707}
+  - component: {fileID: 486776708}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -697,6 +699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InputProcessor
   InputManager: {fileID: 486776703}
   Shooter: {fileID: 451957206}
+  GunManager: {fileID: 486776708}
   GunScope: {fileID: 1945145716}
   HeadPitcher: {fileID: 2012324159}
   CharacterRotator: {fileID: 607166449}
@@ -714,6 +717,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBulletManager
   BulletPrefab: {fileID: 228821183790472552, guid: e01949458cf601f489912f06e44fa884, type: 3}
+--- !u!114 &486776708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486776701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd23806b04ec2940bf4599e8dfcf31a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunManager
 --- !u!1 &507411950
 GameObject:
   m_ObjectHideFlags: 0

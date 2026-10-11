@@ -9,14 +9,18 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private HeadPitcher HeadPitcher;
     [SerializeField]
+    private GunManager GunManager;
+    [SerializeField]
     private PlayerBulletManager PlayerBulletManager;
     [SerializeField]
     private Transform GunTip;
 
     public void Shoot()
     {
+        GunDataDto currentGunData = GunManager.CurrentGunData;
+
         PlayerBulletManager.Shoot(GunTip);
-        ApplyRecoil(1f);
+        ApplyRecoil(currentGunData.Recoil);
     }
 
     void ApplyRecoil(float recoilScalar)
