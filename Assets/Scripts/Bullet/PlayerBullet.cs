@@ -56,8 +56,8 @@ public class PlayerBullet : MonoBehaviour
             Released = true;
             BulletRigidbody.isKinematic = true;
 
+            //Wait until trail ends to release
             yield return new WaitForSeconds(BulletTrailRenderer.time);
-
             ReleaseFunction.Invoke();
         }
     }
