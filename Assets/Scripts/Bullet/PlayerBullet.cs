@@ -23,6 +23,7 @@ public class PlayerBullet : MonoBehaviour
         //Reset Components
         transform.position = startingTransform.position;
         transform.rotation = startingTransform.rotation;
+        BulletRigidbody.isKinematic = false;
         BulletRigidbody.linearVelocity = Vector3.zero;
         BulletTrailRenderer.Clear();
         Physics.SyncTransforms();
@@ -34,23 +35,29 @@ public class PlayerBullet : MonoBehaviour
     IEnumerator LifeCycleTimer()
     {
         yield return FIVE_SECONDS;
-        Release();
+        StartCoroutine(Release());
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (Released) return;
+
         if (other.TryGetComponent<EnemyBase>(out var enemy))
         {
             enemy.TakeDamage(10f);
-            Release();
+            StartCoroutine(Release());
         }
     }
 
-   private void Release()
+   private IEnumerator Release()
     {
         if (!Released)
         {
             Released = true;
+            BulletRigidbody.isKinematic = true;
+
+            yield return new WaitForSeconds(BulletTrailRenderer.time);
+
             ReleaseFunction.Invoke();
         }
     }
