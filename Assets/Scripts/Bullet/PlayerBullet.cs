@@ -7,6 +7,8 @@ public class PlayerBullet : MonoBehaviour
     private const float BULLET_SPEED = 50f;
 
     [SerializeField]
+    private TrailRenderer BulletTrailRenderer;
+    [SerializeField]
     private Rigidbody BulletRigidbody;
 
     private readonly WaitForSeconds FIVE_SECONDS = new WaitForSeconds(5f);
@@ -18,13 +20,14 @@ public class PlayerBullet : MonoBehaviour
         Released = false;
         ReleaseFunction = release;
 
+        //Reset Components
         transform.position = startingTransform.position;
         transform.rotation = startingTransform.rotation;
         BulletRigidbody.linearVelocity = Vector3.zero;
+        BulletTrailRenderer.Clear();
         Physics.SyncTransforms();
 
         BulletRigidbody.AddRelativeForce(Vector3.forward * BULLET_SPEED, ForceMode.VelocityChange);
-
         StartCoroutine(LifeCycleTimer());
     }
 
