@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
+    private const float BULLET_SPEED = 50f;
+
+    [SerializeField]
+    private Rigidbody BulletRigidbody;
+
     private readonly WaitForSeconds FIVE_SECONDS = new WaitForSeconds(5f);
     bool Released = false;
     private Action ReleaseFunction;
@@ -12,8 +17,13 @@ public class PlayerBullet : MonoBehaviour
     {
         Released = false;
         ReleaseFunction = release;
+
         transform.position = startingTransform.position;
         transform.rotation = startingTransform.rotation;
+        BulletRigidbody.linearVelocity = Vector3.zero;
+        Physics.SyncTransforms();
+
+        BulletRigidbody.AddRelativeForce(Vector3.forward * BULLET_SPEED, ForceMode.VelocityChange);
 
         StartCoroutine(LifeCycleTimer());
     }
