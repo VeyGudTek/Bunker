@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooter
   GunMover: {fileID: 451957204}
-  GunRotator: {fileID: 451957205}
+  GunAimer: {fileID: 1945145717}
   HeadPitcher: {fileID: 2012324159}
   GunManager: {fileID: 486776708}
   PlayerBulletManager: {fileID: 486776707}

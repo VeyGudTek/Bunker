@@ -5,7 +5,7 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private GunMover GunMover;
     [SerializeField]
-    private GunRotator GunRotator;
+    private GunAimer GunAimer;
     [SerializeField]
     private HeadPitcher HeadPitcher;
     [SerializeField]
@@ -32,7 +32,7 @@ public class Shooter : MonoBehaviour
     void ApplyRecoil(float recoilScalar)
     {
         GunMover.ApplyRecoil(recoilScalar);
-        GunRotator.ApplyRecoil(recoilScalar);
+        GunAimer.ApplyRecoil(recoilScalar);
         HeadPitcher.ApplyRecoil(recoilScalar);
     }
 

@@ -3,18 +3,11 @@ using UnityEngine;
 public class GunRotator : MonoBehaviour
 {
     const float GUN_AIM_SPEED = 1000f;
-    const float GUN_RECOIL = 100f;
 
     [SerializeField]
     private Transform PlayerBodyTransform;
     [SerializeField]
     private Transform HeadTransform;
-
-    public void ApplyRecoil(float recoilScalar)
-    {
-        Quaternion rotationRecoil = Quaternion.Euler(-recoilScalar * GUN_RECOIL, 0f, 0f);
-        transform.rotation = transform.rotation * rotationRecoil;
-    }
 
     void FixedUpdate()
     {

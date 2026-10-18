@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class GunAimer : MonoBehaviour
 {
-    const float AIM_SPEED = 100f;
+    const float GUN_RECOIL = 100f;
+    const float RECOIL_RECOVERY_SPEED = 100f;
 
     [SerializeField]
     CharacterVision Vision;
 
-    // Update is called once per frame
+    public void ApplyRecoil(float recoilScalar)
+    {
+        Quaternion rotationRecoil = Quaternion.Euler(-recoilScalar * GUN_RECOIL, 0f, 0f);
+        transform.rotation = transform.rotation * rotationRecoil;
+    }
+
     void FixedUpdate()
     {
         UpdateRotation();
@@ -17,6 +23,11 @@ public class GunAimer : MonoBehaviour
     {
         Vector3 direction = Vision.ViewPoint - transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, AIM_SPEED * Time.fixedDeltaTime);
+
+        float speedPercent = Quaternion.Angle(transform.rotation, targetRotation) / 180f;
+        float baseSpeed = RECOIL_RECOVERY_SPEED * Time.fixedDeltaTime;
+        float actualSpeed = Mathf.Lerp(baseSpeed * .5f, baseSpeed * 5f, speedPercent);
+
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, actualSpeed);
     }
 }
