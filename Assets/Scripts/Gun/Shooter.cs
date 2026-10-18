@@ -15,12 +15,18 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private Transform GunTip;
 
+    private float ShootTimer = 0f;
+
     public void Shoot()
     {
         GunDataDto currentGunData = GunManager.CurrentGunData;
 
-        PlayerBulletManager.Shoot(GunTip);
-        ApplyRecoil(currentGunData.Recoil);
+        if (ShootTimer > currentGunData.FireRate)
+        {
+            ShootTimer = 0f;
+            PlayerBulletManager.Shoot(GunTip);
+            ApplyRecoil(currentGunData.Recoil);
+        }
     }
 
     void ApplyRecoil(float recoilScalar)
@@ -28,5 +34,10 @@ public class Shooter : MonoBehaviour
         GunMover.ApplyRecoil(recoilScalar);
         GunRotator.ApplyRecoil(recoilScalar);
         HeadPitcher.ApplyRecoil(recoilScalar);
+    }
+
+    private void Update()
+    {
+        ShootTimer += Time.deltaTime;
     }
 }
